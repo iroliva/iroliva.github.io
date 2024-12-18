@@ -1,17 +1,17 @@
 ---
 # Display name
-title: 吳健雄
+title: Ignacio Oliva
 
 # Name pronunciation (optional)
-name_pronunciation: Chien Shiung Wu
+name_pronunciation: ''
 
 # Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+first_name: Ignacio
+last_name: Oliva
 
 # Status emoji
 status:
-  icon: ☕️
+  icon: 🐢
 
 # Is this the primary user of the site?
 superuser: true
@@ -20,36 +20,34 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role: Environmental Economist
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: Agricultural and Resources Economics - UC Davis
+    url: https://are.ucdavis.edu/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:iroliva@ucdavis.edu'
     label: E-mail Me
   - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
+    url: https://twitter.com/nacho_oliva
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/iroliva
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/ignacio-oliva-23a86a1b8/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
+    url: https://scholar.google.com/citations?user=O7I4qH8AAAAJ&hl=es
   - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://orcid.org/0000-0003-3692-7775
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Environmental Economics
+  - Natural Capital
+  - Spatial Economics
 
 education:
   - area: PhD Artificial Intelligence
@@ -183,4 +181,4 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am an environmental economist inteersted in studying the economics of natural capital.
