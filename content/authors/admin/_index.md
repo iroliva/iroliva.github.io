@@ -44,10 +44,82 @@ profiles:
   - icon: academicons/orcid
     url: https://orcid.org/0000-0003-3692-7775
 
+education:
+  - area: PhD in Agricultural and Resources Economics
+    institution: UC Davis
+    date_start: 2022-09-01
+    date_end: ''
+    summary: |
+      Researching on the wider economics effects of Natural Capital
+
+  - area: Master in Economics
+    institution: Barcelona Schools of Economics and Universitat Pompeu Fabra
+    date_start: 2021-09-01
+    date_end: 2022-07-01
+    summary: |
+      Relevant courses: Econometrics, Climate Economics and Urban Economics.
+      Outstading thesis recognition: Migrants' professional downgrading in Chile.
+    button:
+      text: 'Read Thesis'
+      url: 'http://hdl.handle.net/10230/54972'
+
+  - area: Master of Engineering Science
+    institution: Pontificia Universidad Catolica de Chile
+    date_start: 2015-03-01
+    date_end: 2017-05-01
+    summary: |
+      Thesis: Built environment and cyclists' travel behavior.
+    button:
+      text: 'Read Thesis (spanish)'
+      url: 'https://doi.org/10.7764/tesisUC/ING/21404'
+  
+work:
+  - position: Chief of Sustainable Research and Outreach + Instructor 
+    company_name: Institute for Sustainable Development
+    company_url: 'https://desarrollosustentable.uc.cl'
+    company_logo: ''
+    date_start: 2018-03-01
+    date_end: 2021-08-01
+    summary: |2-
+      Responsibilities include:
+      - Design and teach innovative lectures on sustaintability.
+      - Research on education for sustainable development.
+      - Orchestrate outreach events.
+# Skills
+# Add your own SVG icons to `assets/media/icons/`
+skills:
+  - name: Technical Skills
+    items:
+      - name: Julia
+        description: ''
+        percent: ''
+        icon: code-bracket
+      - name: R
+        description: ''
+        icon: ''
+      - name: Matlab
+        description: ''
+        icon: ''
+  - name: Hobbies
+    items:
+      - name: Cycling
+        description: ''
+        percent: ''
+        icon: person-simple-walk
+      - name: Read
+        description: ''
+        percent: ''
+        icon: ''
+      - name: music
+        description: ''
+        percent: ''
+        icon: ''
+
+
 interests:
   - Natural Capital
   - Environmental Economics
-  - DEvelopment Economics
+  - Development Economics
 
 languages:
   - name: English
@@ -88,4 +160,4 @@ languages:
 
 I am an environmental economist inteersted in studying the economics of natural capital. My research ionterest focuses on the spatial effects of climate change on natural capital and biodiversity loss.
 
-My background is in Industrial and Transport engineering, where I researched on built environment and travel behavior. I worked in the wonderful Institute for Sustainable Development at Pontificia Universidad Catolica de Chile. A unique place for interdisciplinary work, critical thinking and original research.
+My background is in Industrial and Transport engineering, where I researched on built environment and travel behavior. I worked in the wonderful Institute for Sustainable Development at Pontificia Universidad Catolica de Chile.
