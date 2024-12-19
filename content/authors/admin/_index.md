@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Environmental Economist
+role: PhD Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -158,6 +158,6 @@ languages:
 
 ## About Me
 
-I am an environmental economist inteersted in studying the economics of natural capital. My research ionterest focuses on the spatial effects of climate change on natural capital and biodiversity loss.
+I am an environmental economist studying the economics of natural capital. My research focuses on how climate change affects welfare through natural capital loss--in general--and biodiversity loss--in particular. 
 
 My background is in Industrial and Transport engineering, where I researched on built environment and travel behavior. I worked in the wonderful Institute for Sustainable Development at Pontificia Universidad Catolica de Chile.
