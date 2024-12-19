@@ -91,29 +91,29 @@ skills:
   - name: Technical Skills
     items:
       - name: Julia
-        description: ''
+        description: 'Integrated Assessment Models'
         percent: ''
-        icon: code-bracket
+        icon: devicon/julia
       - name: R
-        description: ''
-        icon: ''
+        description: 'Econometrics'
+        icon: devicon/r
       - name: Matlab
         description: ''
-        icon: ''
+        icon: devicon/matlab
   - name: Hobbies
     items:
       - name: Cycling
-        description: ''
+        description: 'Long distance cycling'
         percent: ''
-        icon: person-simple-walk
+        icon: custom/bicycle
       - name: Read
-        description: ''
+        description: 'On my women-writters era'
         percent: ''
-        icon: ''
+        icon: custom/reading
       - name: music
-        description: ''
+        description: 'New music + records collection'
         percent: ''
-        icon: ''
+        icon: custom/cd
 
 
 interests:
