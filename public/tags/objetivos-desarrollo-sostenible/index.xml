@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Objetivos Desarrollo Sostenible | Ignacio Oliva website</title>
+    <link>http://localhost:1313/tags/objetivos-desarrollo-sostenible/</link>
+      <atom:link href="http://localhost:1313/tags/objetivos-desarrollo-sostenible/index.xml" rel="self" type="application/rss+xml" />
+    <description>Objetivos Desarrollo Sostenible</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>Objetivos Desarrollo Sostenible</title>
+      <link>http://localhost:1313/tags/objetivos-desarrollo-sostenible/</link>
+    </image>
+    
+    <item>
+      <title>Caracterización de la contribución a los ODS en una universidad de Chile: ampliando la mirada desde la gestión institucional a la investigación</title>
+      <link>http://localhost:1313/publication/oliva-caracterizacion-contribucion-ods-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/oliva-caracterizacion-contribucion-ods-2020/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
