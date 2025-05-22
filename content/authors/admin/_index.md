@@ -81,7 +81,7 @@ work:
     date_start: 2018-03-01
     date_end: 2021-08-01
     summary: |2-
-      Responsibilities include:
+      Responsibilities included:
       - Design and teach innovative lectures on sustaintability.
       - Research on education for sustainable development.
       - Orchestrate outreach events.

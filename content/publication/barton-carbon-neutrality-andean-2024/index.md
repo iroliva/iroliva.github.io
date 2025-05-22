@@ -60,4 +60,6 @@ tags:
 links:
 - name: URL
   url: https://doi.org/10.1108/IJSHE-11-2022-0351
+
+featured: true
 ---

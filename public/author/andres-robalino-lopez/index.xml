@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andrés Robalino-López | Ignacio Oliva website</title>
+    <link>http://localhost:1313/author/andres-robalino-lopez/</link>
+      <atom:link href="http://localhost:1313/author/andres-robalino-lopez/index.xml" rel="self" type="application/rss+xml" />
+    <description>Andrés Robalino-López</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu4766076175991164455.png</url>
+      <title>Andrés Robalino-López</title>
+      <link>http://localhost:1313/author/andres-robalino-lopez/</link>
+    </image>
+    
+    <item>
+      <title>Carbon neutrality in Andean universities: the centrality of context in comparative analysis of assessment, opportunities and obstacles</title>
+      <link>http://localhost:1313/publication/barton-carbon-neutrality-andean-2024/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/barton-carbon-neutrality-andean-2024/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
