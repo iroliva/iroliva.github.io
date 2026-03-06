@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignacio Oliva</title>
+  <meta
+    name="description"
+    content="Personal academic webpage of Ignacio Oliva, economist working on environmental economics, natural capital, and climate change."
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8f8f6;
+      --surface: #ffffff;
+      --text: #1d1d1b;
+      --muted: #5f5f58;
+      --line: #dfdfd8;
+      --accent: #1f4b6e;
+      --accent-soft: #e9f0f5;
+      --max-width: 1100px;
+      --nav-height: 72px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background: rgba(248, 248, 246, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(223, 223, 216, 0.7);
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-cv {
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text) !important;
+    }
+
+    /* Sections */
+    section {
+      scroll-margin-top: calc(var(--nav-height) + 24px);
+      padding: 5.5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 0.75rem 0;
+      line-height: 1.15;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.7rem);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      max-width: 700px;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 4.5rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .hero-fields {
+      margin: 1rem 0 1.25rem 0;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .hero-image-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image {
+      width: min(100%, 360px);
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(223, 223, 216, 0.8);
+      background: #ecece7;
+    }
+
+    /* Cards / paper blocks */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.4rem 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .paper-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .featured-paper {
+      margin-bottom: 1.25rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .paper-status {
+      display: inline-block;
+      margin-bottom: 0.55rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.3rem 0.55rem;
+      border-radius: 999px;
+    }
+
+    .paper-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .paper-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .coauthors {
+        margin: -0.15rem 0 0.85rem 0;
+        font-size: 0.95rem;
+        color: var(--muted);
+    }
+
+    /* CV section */
+    .cv-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.25rem 0 1.5rem;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      min-height: 760px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .pdf-frame object {
+      width: 100%;
+      height: 760px;
+      border: 0;
+    }
+
+    .pdf-fallback {
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* News */
+    .news-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .news-date {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    /* Contact */
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .contact-list p {
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image-wrap {
+        order: -1;
+      }
+
+      .hero-image {
+        width: min(100%, 300px);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        height: auto;
+        position: sticky;
+      }
+
+      .nav-inner {
+        padding: 0.9rem 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 0.85rem 1rem;
+      }
+
+      section {
+        padding: 4.2rem 0;
+        scroll-margin-top: 120px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+
+      .pdf-frame,
+      .pdf-frame object {
+        min-height: 540px;
+        height: 540px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#about" class="brand">Ignacio Oliva</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#cv">CV</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cv" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero / About -->
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"></div>
+        <h1>Ignacio Oliva</h1>
+        <div class="hero-subtitle">PhD (c) Agricultural and Resource Economics, University of California, Davis</div>
+
+        <p class="hero-fields">
+          Research fields: Environmental Economics · Natural Capital · Ecosystem Services · Climate Change
+        </p>
+
+        <p class="lead">
+            I am an environmental economist studying how changes in natural capital affect ecosystem services,
+            environmental risk, and human welfare. My research examines how these effects are distributed 
+            across people and places, when natural-capital interventions generate hidden trade-offs, and how
+            policy can better value and manage natural assets.
+        </p>
+
+        <div class="hero-cta">
+          <a class="button primary" href="#research">View Research</a>
+          <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+          <a class="button" href="mailto:iroliva@ucdavis.edu">Email</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img src="assets/profile.jpg" alt="Portrait of Ignacio Oliva" class="hero-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Research</div>
+        <h2>Research agenda</h2>
+        <p class="lead">
+          My research examines how changes in natural capital shape welfare, environmental 
+            risk, and the value of ecosystem services. I study these questions across scales, 
+            from the social cost of carbon to drought and wildfire risk to the valuation of 
+            urban green space.
+        </p>
+      </div>
+
+    <div class="card featured-paper">
+    <div class="paper-status">Working Paper</div>
+    <h3>Global Warming, Ecosystems, and Inequality</h3>
+    <p class="coauthors">with Rémi Turquier</p>
+    <p>
+        In this paper we study how inequality shapes the social cost of
+        ecosystem losses in a warming world. We develop a climate-economy
+        model with ecosystem services and both national and international
+        inequality to quantify the social cost of the interaction between income 
+        inequality and ecosystem decline.
+    </p>
+    <div class="paper-links">
+        <details class="abstract-box">
+        <summary>Abstract</summary>
+        <p>
+            Global warming, biodiversity loss and inequalities are
+            interconnected, yet rarely studied jointly. We investigate how
+            damages to the environment change the social cost of
+            inequalities, and how inequalities influence the social value of
+            ecosystem services. We show that the answer depends on two
+            parameters: inequality aversion, and substitutability between
+            market goods and environmental goods. When both parameters are
+            high, inequality increases the marginal value of the environment.
+            This is not always the case when both parameters are low. We
+            quantify this interaction by building a climate-economy model
+            that includes ecosystem services and features both national and
+            international inequalities. In our main calibration, the
+            presence of national inequalities doubles the marginal social
+            cost of damages to the environment. Overall, our findings show
+            that inequalities and ecosystem services interact in large and
+            non-obvious ways. Ignoring this interaction can lead to
+            substantial errors in the evaluation of environmental and
+            redistributive policies.
+        </p>
+        </details>
+    </div>
+    </div>
+
+       <div class="card">
+        <div class="paper-status">Work in Progress</div>
+        <h3>Unintended consequences of nature-based climate mitigation: Exotic natural capital and water scarcity</h3>
+        <p class="coauthors">
+            with <a href="https://brunoppp.github.io/page/" target="_blank" rel="noopener noreferrer">Bruno Pimenta</a>
+        </p>
+        <p>
+            In this paper we examine whether industrial tree plantations generate
+            unintended trade-offs in ecosystem service provision. Using
+            watershed-level panel data from Chile, we study how plantation
+            expansion affects freshwater provision and the resulting welfare
+            implications of natural-capital investments designed to support
+            climate mitigation.
+        </p>
+        <div class="paper-links">
+            <details class="abstract-box">
+            <summary>Abstract</summary>
+            <p>
+                Increasing the tree-covered area is often promoted as an
+                effective policy to meet carbon mitigation goals. However, the
+                expansion of exotic monoculture plantations can disrupt local
+                ecosystem services. This paper studies the impact of these
+                plantations on freshwater provision using watershed-level data
+                and panel variation in land-cover change in Chile. Our initial
+                results show that tree plantation expansion causally reduces
+                surface freshwater availability, suggesting a trade-off between
+                carbon sequestration and local water resources.
+            </p>
+            </details>
+        </div>
+        </div>
+
+        <div class="card">
+            <div class="paper-status">Work in Progress</div>
+            <h3>Industrial Tree Plantations, Wildfire Risk, and Resilient Landscapes</h3>
+            <p>
+                I study whether industrial tree plantations increase
+                wildfire damages and how landscape management can better balance
+                carbon sequestration with fire resilience. More broadly, it examines
+                how landscape configuration shapes environmental risk and the design
+                of more resilient natural-capital strategies.
+            </p>
+            <div class="paper-links">
+                <span>Abstract coming soon</span>
+            </div>
+        </div>
+
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Curriculum Vitae</div>
+        <h2>Current CV</h2>
+        <p class="lead">
+        
+        </p>
+      </div>
+
+      <div class="cv-actions">
+        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Open CV in New Tab</a>
+        <a class="button" href="assets/cv.pdf" download>Download CV</a>
+      </div>
+
+      <div class="pdf-frame">
+        <object data="assets/cv.pdf" type="application/pdf">
+          <div class="pdf-fallback">
+            <p>The PDF preview is not available in your browser.</p>
+            <p>
+              <a href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Click here to open the CV</a>.
+            </p>
+          </div>
+        </object>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Latest News</div>
+        <h2>Recent updates</h2>
+        <p class="lead">
+        
+        </p>
+      </div>
+
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-date">January 2026</div>
+            <p>Finished my 
+                <strong> 
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7426769624479850497/?originTrackingId=jhFrLNzRjVDMfW4k%2Bvdc2w%3D%3D" 
+                target="_blank" rel="noopener noreferrer">visit</a>
+                </strong> 
+                at Universidad Católica de Chile and the Landscape Ecology Lab at Universidad de Concepción. 
+            </p>
+        </div>
+        
+        <div class="news-item">
+          <div class="news-date">July 2025</div>
+          <p>PArticipated in the 2025 Berkeley/Sloan Summer School in Environmental and Energy Economics.</p>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">June 2025</div>
+            <p>Awarded with a  
+                <strong>
+                <a href="https://environment.ucdavis.edu/news/announcing-2025-2026-institute-environment-earth-and-environmental-climate-justice-scholars"
+                target="_blank" rel="noopener noreferrer">
+                2025-2026 Earth Scholar fellowship</a>
+                </strong>
+                .
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Contact</div>
+        <h2>Get in touch</h2>
+      </div>
+
+      <div class="card contact-card">
+        <div>
+          <h3>Contact information</h3>
+          <div class="contact-list">
+            <p><strong>Email:</strong> <a href="mailto:iroliva@ucdavis.edu">iroliva@ucdavis.edu</a></p>
+            <p><strong>Affiliation:</strong> Department of Agricultural Resource and Economics, University of California, Davis</p>
+            <p><strong>Location:</strong> Davis, CA</p>
+          </div>
+        </div>
+
+        <div>
+          <h3>Professional links</h3>
+          <div class="contact-list">
+            <p><a href="https://scholar.google.com/citations?user=O7I4qH8AAAAJ&hl=es">Google Scholar</a></p>
+            <p><a href="https://www.linkedin.com/in/ignacio-oliva-23a86a1b8/">LinkedIn</a></p>
+            <p><a href="https://github.com/iroliva">GitHub</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Ignacio Oliva. Hosted on GitHub Pages.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
