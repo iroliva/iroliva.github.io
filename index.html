@@ -71,8 +71,15 @@
       z-index: 1000;
       height: var(--nav-height);
       background: rgba(248, 248, 246, 0.92);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(223, 223, 216, 0.7);
+    }
+
+    @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+      .nav {
+        background: #f8f8f6;
+      }
     }
 
     .nav-inner {
@@ -81,6 +88,19 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
     }
 
     .brand {
@@ -95,6 +115,7 @@
       gap: 1.25rem;
       align-items: center;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
@@ -106,14 +127,6 @@
     .nav-links a:hover {
       color: var(--text);
       text-decoration: none;
-    }
-
-    .nav-cv {
-      padding: 0.65rem 1rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--text) !important;
     }
 
     /* Sections */
@@ -209,19 +222,19 @@
       align-items: center;
       justify-content: center;
       padding: 0.85rem 1.15rem;
+      min-height: 44px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: var(--surface);
       color: var(--text);
       font-weight: 600;
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .button:hover {
       text-decoration: none;
-      transform: translateY(-1px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     }
 
     .button.primary {
@@ -325,6 +338,19 @@
       color: var(--muted);
     }
 
+    .ios-pdf-note {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    body.is-ios .pdf-frame {
+      display: none;
+    }
+
+    body.is-ios .ios-pdf-note {
+      display: block;
+    }
+
     /* News */
     .news-list {
       display: grid;
@@ -371,6 +397,23 @@
     }
 
     /* Responsive */
+    @media (max-width: 1100px) and (min-width: 721px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 3rem));
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+      }
+
+      .pdf-frame,
+      .pdf-frame object {
+        min-height: 680px;
+        height: 680px;
+      }
+    }
+
     @media (max-width: 900px) {
       .hero-grid,
       .contact-card {
@@ -387,24 +430,57 @@
     }
 
     @media (max-width: 720px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 1.5rem));
+      }
+
       .nav {
         height: auto;
         position: sticky;
+        padding-top: env(safe-area-inset-top);
       }
 
       .nav-inner {
         padding: 0.9rem 0;
-        align-items: flex-start;
-        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .nav-links {
-        gap: 0.85rem 1rem;
+        width: 100%;
+        display: none;
+        margin-top: 0.7rem;
+        padding-top: 0.7rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 0.35rem 0;
+      }
+
+      .hero-cta {
+        gap: 0.65rem;
+      }
+
+      .hero-cta .button,
+      .cv-actions .button {
+        width: 100%;
       }
 
       section {
         padding: 4.2rem 0;
-        scroll-margin-top: 120px;
+        scroll-margin-top: 96px;
       }
 
       .news-item {
@@ -414,8 +490,12 @@
 
       .pdf-frame,
       .pdf-frame object {
-        min-height: 540px;
-        height: 540px;
+        min-height: 460px;
+        height: 460px;
+      }
+
+      body:not(.is-ios) .ios-pdf-note {
+        display: none;
       }
     }
   </style>
@@ -426,13 +506,13 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#about" class="brand">Ignacio Oliva</a>
-      <div class="nav-links">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav-links">Menu</button>
+      <div class="nav-links" id="main-nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#cv">CV</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cv" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
       </div>
     </div>
   </nav>
@@ -450,15 +530,14 @@
         </p>
 
         <p class="lead">
-            I am an environmental economist studying how changes in natural capital affect ecosystem services,
-            environmental risk, and human welfare. My research examines how these effects are distributed 
-            across people and places, when natural-capital interventions generate hidden trade-offs, and how
-            policy can better value and manage natural assets.
+          I am an environmental economist studying how changes in natural capital affect ecosystem services,
+          inequality, and human welfare. My research examines how ecosystem service losses interact with
+          inequality and identifies policy trade-offs in nature-based climate mitigation, helping inform how
+          policy values and manages natural assets.
         </p>
 
         <div class="hero-cta">
           <a class="button primary" href="#research">View Research</a>
-          <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
           <a class="button" href="mailto:iroliva@ucdavis.edu">Email</a>
         </div>
       </div>
@@ -476,10 +555,8 @@
         <div class="eyebrow">Research</div>
         <h2>Research agenda</h2>
         <p class="lead">
-          My research examines how changes in natural capital drive welfare, environmental 
-            risk, and the value of ecosystem services. I study these questions across scales, 
-            from the social cost of carbon to drought and wildfire risk to the valuation of 
-            urban green space.
+          Current projects examine natural capital, ecosystem services, nature-based climate mitigation,
+          and the distributional impacts of environmental change across local and global settings.
         </p>
       </div>
 
@@ -488,8 +565,8 @@
     <h3>Global Warming, Ecosystems, and Inequality</h3>
     <p class="coauthors">with Rémi Turquier</p>
     <p>
-        In this paper we study how inequality interacts with the social cost of
-        ecosystem losses in a warming world.
+      We examine the interaction between ecosystem-service losses and inequality,
+      and how this interaction changes the social cost of carbon.
     </p>
     <div class="paper-links">
         <details class="abstract-box">
@@ -525,8 +602,8 @@
             with <a href="https://brunoppp.github.io/page/" target="_blank" rel="noopener noreferrer">Bruno Pimenta</a>
         </p>
         <p>
-            In this paper we examine whether industrial tree plantations generate
-            unintended trade-offs between economic output and freshwater provision.
+          We study whether expanding exotic tree plantations creates a trade-off
+          between carbon mitigation and freshwater availability.
         </p>
         <div class="paper-links">
             <details class="abstract-box">
@@ -573,8 +650,13 @@
       </div>
 
       <div class="cv-actions">
-        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Open CV in New Tab</a>
+        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Open CV</a>
         <a class="button" href="assets/cv.pdf" download>Download CV</a>
+      </div>
+
+      <div class="card ios-pdf-note">
+        <p>Some iPhone browsers do not support PDF preview inline.</p>
+        <a class="button" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">Open CV in Browser</a>
       </div>
 
       <div class="pdf-frame">
@@ -615,7 +697,7 @@
         
         <div class="news-item">
           <div class="news-date">July 2025</div>
-          <p>PArticipated in the 2025 Berkeley/Sloan Summer School in Environmental and Energy Economics.</p>
+          <p>Participated in the 2025 Berkeley/Sloan Summer School in Environmental and Energy Economics.</p>
         </div>
 
         <div class="news-item">
@@ -646,7 +728,7 @@
           <h3>Contact information</h3>
           <div class="contact-list">
             <p><strong>Email:</strong> <a href="mailto:iroliva@ucdavis.edu">iroliva@ucdavis.edu</a></p>
-            <p><strong>Affiliation:</strong> Department of Agricultural Resource and Economics, University of California, Davis</p>
+            <p><strong>Affiliation:</strong> Department of Agricultural and Resource Economics, University of California, Davis</p>
             <p><strong>Location:</strong> Davis, CA</p>
           </div>
         </div>
@@ -675,6 +757,38 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    if (isIos) {
+      document.body.classList.add("is-ios");
+    }
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.matchMedia("(max-width: 720px)").matches) {
+            navLinks.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 720) {
+          navLinks.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
   </script>
 </body>
 </html>
